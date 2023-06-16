@@ -1,0 +1,253 @@
+@font-face {
+    font-family: "SourceCodePro";
+    src: url("fonts/SourceCodePro-Black.ttf");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "SourceCodePro";
+    src: url("fonts/SourceCodePro-Light.ttf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "SourceCodePro";
+    src: url("fonts/SourceCodePro-Medium.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "SourceCodePro";
+    src: url("fonts/SourceCodePro-Regular.ttf");
+    font-weight: 400;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "SourceCodePro";
+}
+
+html {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+.header{
+    position: relative;
+}
+
+.header-bg img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: aliceblue;
+    background: rgba(255, 255, 255, 0.29);
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(10px);
+    padding: 80px 140px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.gallery {
+    width: 100%;
+    max-width: 1440px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item {
+    position: relative;
+    margin-bottom: 15px;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.list-item:nth-of-type(2n) {
+    border: 5px solid #325E68;
+}
+
+.list-item:nth-of-type(2n+1) {
+    border: 5px solid #955426;
+}
+
+.gallery-left-list,
+.gallery-right-list {
+    list-style: none;
+}
+
+.list-item img {
+    width: 100%;
+    display: block;
+}
+
+.list-item-text {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 30px 60px;
+    backdrop-filter: blur(10px);
+    color: white;
+    transform: translateX(100%);
+    transition: 1s;
+
+}
+
+.list-item:nth-of-type(2n) .list-item-text {
+    background: rgba(50, 94, 104, 0.68);
+
+}
+
+.list-item:nth-of-type(2n+1) .list-item-text {
+    background: rgba(149, 84, 38, 0.5);
+
+}
+
+.list-item-text::before {
+    content: url(img/icons/ic1.svg);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.list-item-text::after {
+    content: url(img/icons/ic2.svg);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.list-item:hover {
+    transform: scale(0.8);
+}
+
+.list-item:hover .list-item-text {
+    transform: translateX(0);
+}
+@media screen and (max-width:1400px){
+    html {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 3.1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    .header-text{
+        top: 0;
+        transform: translate(0,50%);
+        padding: 30px 20px;
+        left: 0;
+    }
+    .list-item-text::after , .list-item-text::before , .list-item-hr{
+        display: none;
+    }
+    .list-item-text{
+        position: relative;
+        transform: translateX(0);
+        width: 100%;
+    }
+    .list-item:hover{
+        transform: scale(1);
+    }
+    .list-item:nth-of-type(2n) .list-item-text {
+        background: rgba(50, 94, 104, 1);
+    
+    }
+    
+    .list-item:nth-of-type(2n+1) .list-item-text {
+        background: rgba(149, 84, 38, 1);
+    
+    }
+    .list-item-text h2{
+        position: absolute;
+        top: 0;
+        transform: translateY(-100%);
+        right: 0;
+        padding: 8px;
+    }
+    .list-item:nth-of-type(2n) .list-item-text h2{
+        background: rgba(50, 94, 104,0.8);
+    
+    }
+    
+    .list-item:nth-of-type(2n+1) .list-item-text h2{
+        background: rgba(149, 84, 38, 0.8);
+    }
+    .list-item-text{
+        text-align: center;
+    }
+    .gallery{
+        flex-direction: column;
+        max-width: 700px;
+        width: 100%;
+    }
+}
+@media (max-width:1400px) and (orientation:landscape) {
+    .gallery{
+        flex-direction: row;
+        max-width: 700px;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .gallery-left-list, .gallery-right-list{
+        max-width: 330px;
+    }
+    .list-item-text h2{
+        width: 100%;
+    }
+}
+@media screen and (max-width:475px)  {
+    .header-text{
+       top: 0;
+       left: auto;
+       right: 0;
+       transform: translate(0,0);
+       width: 100px;
+       display: flex;
+       align-items: center;
+       height: 100%;
+       padding: 0;
+    } 
+    .header-text h1{
+        width:100% ;
+        font-size: 1.5rem;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+    }
+    .gallery{
+        max-width: 330px;
+    }
+
+}
